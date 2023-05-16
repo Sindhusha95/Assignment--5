@@ -1,0 +1,143 @@
+1.Do the below programs in anonymous function & IIFE
+
+a.Print odd numbers in an array
+
+(function() {
+    var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+    numbers.forEach(function(num) {
+      if (num % 2 !== 0) {
+        console.log("Odd Number in the array " + num);
+      }
+    });
+  })();
+
+  //OUTPUT:
+// Odd Number in the arrey 1
+// Odd Number in the arrey 3
+// Odd Number in the arrey 5
+// Odd Number in the arrey 7
+// Odd Number in the arrey 9
+
+b.Convert all the strings to title caps in a string array
+
+// (function() {
+//     var stringArray = ["hello world javascript programming is fun"];
+    
+//     var titleCapsArray = stringArray.map(function(str) {
+//       var words = str.split(' ');
+//       for (var i = 0; i < words.length; i++) {
+//         words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+//       }
+//       return words.join(' ');
+//     });
+    
+//     console.log(titleCapsArray);
+//   })();
+
+  //OUTPUT:
+  //   [ 'Hello World Javascript Programming Is Fun' ]
+  
+c. Sum of all numbers in an array
+
+(function() {
+    var numbers = [1, 2, 3, 4, 5];
+    
+    var sum = numbers.reduce(function(acc, num) {
+      return acc + num;
+    }, 0);
+    
+    console.log("Sum of all the numbers in an array = "+sum);
+  })();
+  
+//OUTPUT:
+//Sum of all the numbers in an array = 15
+
+d. Return all the prime numbers in an array
+
+(function() {
+    var numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+    var primes = numbers.filter(function(num) {
+      for (var i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+        if (num % i === 0) {
+          return false;
+        }
+      }
+      return num !== 1;
+    });
+    
+    console.log("Sum of all the prime numbers in the array = "+primes);
+  })();
+
+  //OUTPUT:
+  //Sum of all the prime numbers in the array = 2,3,5,7
+  
+  e.Return all the palindromes in an array
+  
+  (function() {
+    var words = ["level", "hello", "racecar", "world", "madam"];
+    
+    var palindromes = words.filter(function(word) {
+      var reversedWord = word.split('').reverse().join('');
+      return word === reversedWord;
+    });
+    
+    console.log("All the palindromes in the array are "+palindromes);
+  })();
+  
+//OUTPUT:
+//All the palindromes in the array are level,racecar,madam
+
+f.Return median of two sorted arrays of the same size.
+
+(function() {
+    var array1 = [1, 3, 5];
+    var array2 = [2, 4, 6];
+    
+    var mergedArray = array1.concat(array2);
+    var sortedArray = mergedArray.sort(function(a, b) {
+      return a - b;
+    });
+    
+    var medianIndex = Math.floor(sortedArray.length / 2);
+    var median = sortedArray.length % 2 === 0
+      ? (sortedArray[medianIndex - 1] + sortedArray[medianIndex]) / 2
+      : sortedArray[medianIndex];
+    
+    console.log("Median of two sorted arrays of same size is "+median);
+  })();
+  
+  //OUTPUT:
+  // Median of two sorted arrays of same size is 3.5
+  
+  g. Remove duplicates from an array
+  
+  (function() {
+    var array = [1, 2, 3, 4, 2, 3, 5, 1];
+    
+    var uniqueArray = array.filter(function(value, index, self) {
+      return self.indexOf(value) === index;
+    });
+    
+    console.log(uniqueArray);
+  })();
+
+  //OUTPUT:  [ 1, 2, 3, 4, 5 ]
+  
+  f.Rotate an array by k times
+  
+  (function() {
+    var array = [1, 2, 3, 4, 5];
+    var k = 3;
+    
+    for (var i = 0; i < k; i++) {
+      array.unshift(array.pop());
+    }
+    
+    console.log(array);
+  })();
+
+  // OUTPUT: [ 3, 4, 5, 1, 2 ]
+  
+  
