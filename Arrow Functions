@@ -65,3 +65,19 @@ console.log("Prime numbers in the array are "+primeNumbers);
 
 //OUTPUT:
 Prime numbers in the array are 2,3,5,7
+
+e. Return all the palindromes in an array
+
+const findPalindromes = (array) => {
+    return array.filter((word) => {
+      const lowercaseWord = word.toLowerCase();
+      const reversedWord = lowercaseWord.split('').reverse().join('');
+      return lowercaseWord === reversedWord;
+    });
+  };
+  const words = ["level", "hello", "racecar", "world", "madam"];
+  const palindromes = findPalindromes(words);
+  console.log("Palindromes in the array are "+palindromes);
+
+  //OUTPUT:
+  Palindromes in the array are level,racecar,madam
